@@ -51,8 +51,8 @@ def continue_training_model(model_path="models/pasmal_ent_best_avg.keras", episo
     
     # Set specific epsilon parameters for continued training
     # Adjusted for the new reward system
-    agent.epsilon = 0.7        # Start with higher exploration to adapt to the new penalty
-    agent.epsilon_min = 0.1    # Keep a slightly higher minimum to ensure ongoing exploration
+    agent.epsilon = 0.8        # Start with higher exploration to adapt to the new penalty
+    agent.epsilon_min = 0.05    # Keep a slightly higher minimum to ensure ongoing exploration
     agent.epsilon_decay = 0.995 # Moderate decay to allow sufficient exploration
 
     print(f"Training parameters: epsilon={agent.epsilon}, decay={agent.epsilon_decay}, min={agent.epsilon_min}")
