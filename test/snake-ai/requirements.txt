@@ -1,0 +1,5 @@
+TensorFlow==2.10.0
+numpy==1.21.6
+pygame==2.1.2
+pandas==1.4.3
+scikit-learn==1.1.2
