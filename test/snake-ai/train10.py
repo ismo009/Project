@@ -19,7 +19,7 @@ if physical_devices:
 else:
     print("No GPU available, using CPU")
 
-def continue_training_model(model_path="models/pasmal_ent_best_avg.keras", episodes=1000):
+def continue_training_model(model_path="models/pimpamcheckpoint_2550.keras", episodes=10000):
     """
     Continue training an existing model with the new reward system
     """
@@ -52,8 +52,8 @@ def continue_training_model(model_path="models/pasmal_ent_best_avg.keras", episo
     # Set specific epsilon parameters for continued training
     # Adjusted for the new reward system
     agent.epsilon = 0.8        # Start with higher exploration to adapt to the new penalty
-    agent.epsilon_min = 0.05    # Keep a slightly higher minimum to ensure ongoing exploration
-    agent.epsilon_decay = 0.995 # Moderate decay to allow sufficient exploration
+    agent.epsilon_min = 0.1    # Keep a slightly higher minimum to ensure ongoing exploration
+    agent.epsilon_decay = 0.998 # Moderate decay to allow sufficient exploration
 
     print(f"Training parameters: epsilon={agent.epsilon}, decay={agent.epsilon_decay}, min={agent.epsilon_min}")
 
@@ -78,7 +78,7 @@ def continue_training_model(model_path="models/pasmal_ent_best_avg.keras", episo
     timestamp = time.strftime("%Y%m%d-%H%M%S")
     
     # Create a new model name for the continued training (simplify names)
-    model_prefix = "pasmal_ent_000000000"
+    model_prefix = "pompom"
     
     # Memory limit
     max_memory_size = 100000

@@ -112,7 +112,12 @@ class SnakeEnvironment:
         self.snake_body.insert(0, list(self.snake_pos))
         if self.snake_pos == self.food_pos:
             self.food_pos = self._place_food()
-            reward = 10
+            # Base reward with exponential scaling
+            base_reward = 10
+            # Exponentially increase reward as score increases
+            # This heavily incentivizes late-game performance
+            reward = base_reward * (1.2 ** (self.score - 1))  # 12, 14.4, 17.3, 20.7, 24.9, etc.
+            print(f"Food eaten! Score: {self.score}, Reward: {reward:.1f}")
             self.score += 1
             
             # Mark that the first apple has been eaten

@@ -47,13 +47,13 @@ def train():
     full_reward_history = []
 
     # Training parameters
-    episodes = 1000
+    episodes = 3000
     best_reward = float('-inf')
     best_avg_reward = float('-inf')
     rewards_history = []
     
     # Early stopping parameters
-    patience = 200  # Episodes to wait before stopping if no improvement
+    patience = 500  # Episodes to wait before stopping if no improvement
     no_improvement_count = 0
     
     # At the beginning of your train function:
@@ -103,7 +103,7 @@ def train():
             
             # Save checkpoint models
             if e % 50 == 0 and e > 0:  # Save more frequently
-                checkpoint_path = f"models/checkpoint_episode_{e}.keras"
+                checkpoint_path = f"models/a_checkpoint_episode_{e}.keras"
                 try:
                     agent.save(checkpoint_path)
                     print(f"Checkpoint model saved: {checkpoint_path}")
@@ -120,8 +120,8 @@ def train():
                 best_reward = total_reward
                 no_improvement_count = 0  # Reset counter
                 try:
-                    agent.save("models/best.keras")
-                    print(f"New best reward: {best_reward:.1f} - Saved models/best.keras")
+                    agent.save("models/a_best.keras")
+                    print(f"New best reward: {best_reward:.1f} - Saved models/a_best.keras")
                 except Exception as ex:
                     print(f"Error saving best reward model: {ex}")
             else:
@@ -131,8 +131,8 @@ def train():
             if len(rewards_history) >= 50 and avg_reward > best_avg_reward:
                 best_avg_reward = avg_reward
                 try:
-                    agent.save("models/best_avg.keras")
-                    print(f"New best average reward: {best_avg_reward:.1f} - Saved models/best_avg.keras")
+                    agent.save("models/a_best_avg.keras")
+                    print(f"New best average reward: {best_avg_reward:.1f} - Saved models/a_best_avg.keras")
                 except Exception as ex:
                     print(f"Error saving best average model: {ex}")
             
@@ -175,7 +175,7 @@ def train():
 
         # Save the final trained model
         try:
-            agent.save("models/final_model.keras")
+            agent.save("models/a_final.keras")
             print(f"Final model saved after {episodes} episodes")
             
             # Save final training records
