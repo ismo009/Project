@@ -673,7 +673,7 @@ class GamePlayer:
             # Control game speed with adjustable multiplier
             # Lower delay = faster game
             effective_delay = max(5, int(self.delay / speed_multiplier))
-            fps = (131 / effective_delay) * self.animation_steps
+            fps = (1000 / effective_delay) * self.animation_steps
             clock.tick(fps)
 
 def get_available_models():
