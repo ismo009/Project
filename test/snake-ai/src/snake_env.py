@@ -197,7 +197,7 @@ class SnakeEnvironment:
             # Base reward with exponential scaling
             base_reward = 10
             # Exponential increase based on score
-            reward += base_reward * (1.2 ** (self.score))
+            reward += base_reward * (1.01 ** (self.score))
             
             self.score += 1
             self.steps_without_food = 0
